@@ -1,0 +1,70 @@
+<div class="carousel-slider-wrapper">
+  <div class="carousel-track">
+    <!-- Original Set of Slides -->
+    <div class="slide"><img src="D:\D\Desktop\COMMS DOCS\LIGTAS LUNES" alt="1"></div>
+    <div class="slide"><img src="https://picsum.photos/4400/4400?image=1015" alt="2"></div>
+    <div class="slide"><img src="https://picsum.photos/4400/4400?image=1019" alt="3"></div>
+    <div class="slide"><img src="https://picsum.photos/4400/4400?image=1025" alt="4"></div>
+    
+    <!-- Duplicated Set for Seamless Infinite Loop -->
+    <div class="slide"><img src="https://picsum.photos/4400/4400?image=1018" alt="1"></div>
+    <div class="slide"><img src="https://picsum.photos/4400/4400?image=1015" alt="2"></div>
+    <div class="slide"><img src="https://picsum.photos/4400/4400?image=1019" alt="3"></div>
+    <div class="slide"><img src="https://picsum.photos/4400/4400?image=1025" alt="4"></div>
+  </div>
+</div>
+
+<style>
+  .carousel-slider-wrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    background: transparent;
+  }
+
+  .carousel-track {
+    display: flex;
+    /* (700px Rendered Width + 40px Gap) * 8 Total Slides */
+    width: calc(740px * 8); 
+    gap: 40px;
+    animation: slideRight 100s linear infinite;
+  }
+
+  /* Pause sliding on hover */
+  .carousel-slider-wrapper:hover .carousel-track {
+    animation-play-state: paused;
+  }
+
+  .slide {
+    width: 700px; /* Display size on screen */
+    height: 700px; /* Display size on screen */
+    flex-shrink: 0;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  @keyframes slideRight {
+    0% {
+      /* Offset by 4 unique slides: (700px width + 40px gap) * 4 = -2960px */
+      transform: translateX(calc(-740px * 4)); 
+    }
+    100% {
+      transform: translateX(0); 
+    }
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 800px) {
+    .slide {
+      width: 80vw;
+      height: 80vw;
+    }
+  }
+</style>
